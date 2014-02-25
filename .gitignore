@@ -1,0 +1,11 @@
+.env
+cms-frontend-mockup.sublime-project
+cms-frontend-mockup.sublime-workspace
+.bundle/
+bin/
+node_modules/*
+tmp/*
+.sass-cache
+.DS_Store
+public/javascripts/*
+public/stylesheets/*
