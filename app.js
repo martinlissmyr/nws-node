@@ -30,6 +30,11 @@ app.get("/feed", function(request, response) {
   feed.respond(request, response);
 });
 
+app.get("/manifest.mf", function(request, response) {
+  response.setHeader("content-type", "text/cache-manifest");
+  response.render("manifest", { version: APP_VERSION, device: request.device.type });
+});
+
 app.get('/', function(request, response){
   response.render("index", { version: APP_VERSION, device: request.device.type });
 });
