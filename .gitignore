@@ -7,5 +7,3 @@ node_modules/*
 tmp/*
 .sass-cache
 .DS_Store
-public/javascripts/*
-public/stylesheets/*
