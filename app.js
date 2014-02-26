@@ -6,7 +6,7 @@ var feed = require("./lib/feed");
 var device = require("express-device");
 
 var app = module.exports = express();
-var APP_VERSION = 1;
+var APP_VERSION = 2;
 
 app.use(device.capture());
 
