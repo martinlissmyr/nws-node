@@ -17,12 +17,6 @@ The web app should now be running on [http://localhost:3000](http://localhost:30
 
 Heroku is used for hosting.
 
-### Setting up a new Heroku app
-
-Use [Heroku's node buildpack](https://github.com/heroku/heroku-buildpack-nodejs) to get nodejs support. 
-
-    $ heroku config:add BUILDPACK_URL=https://github.com/heroku/heroku-buildpack-nodejs
-    
 ### Push a new version
 
 Use Herokus git deploy.
