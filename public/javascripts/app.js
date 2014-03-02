@@ -36,9 +36,10 @@
   };
 
   var getArticle = function(url, container) {
-    var article = container.querySelector("article");
+    var exists,
+        article = exists = container.parentNode.querySelector("article");
 
-    if (!article) {
+    if (!exists) {
       article = document.createElement("article");
       container.parentNode.appendChild(article);
     }
@@ -50,15 +51,17 @@
       articleScroll.scrollTo(0, 0, 0);
     }
 
-    article.innerHTML = "<span class=\"loader\">Loading...</span>";
-
-    $.getJSON("fetch/" + url, function(json) {
-      article.innerHTML = articleTemplate(json);
-      //article.innerHTML += "<div class=\"actions\"><a href=\"" + url + "\">Öppna i Safari</a></div>";
-      if (articleScroll) {
-        setTimeout(function () { articleScroll.refresh() }, 50);
-      }
-    });
+    if (exists) {
+      $.removeClass("hidden", article);
+    } else {
+      article.innerHTML = "<div class=\"loader\"><span class=\"loader-thing\"><span class=\"step\"></span><span class=\"step\"></span><span class=\"step\"></span></span> Laddar...</div>";
+      $.getJSON("fetch/" + url, function(json) {
+        article.innerHTML = articleTemplate(json);
+        if (articleScroll) {
+          setTimeout(function () { articleScroll.refresh() }, 50);
+        }
+      });
+    }
   }
 
   var init = function() {

@@ -22,10 +22,12 @@ h1 {
   display: none;
 }
 .loader {
-  /*background: url(../img/loader.gif) 12px 7px no-repeat;*/
-  padding: 5px 7px 7px 33px;
+  font-family: "helvetica neue", helvetica, arial, sans-serif;
+  font-weight: 200;
+  letter-spacing: 1px;
+  text-transform: uppercase;
   display: block;
-  font-size: 13pt;
+  font-size: 11pt;
 }
 .start .loader {
   display: block;
@@ -39,16 +41,74 @@ h1 {
   text-align: right;
 }
 
+.loader-thing {
+  display: inline-block;
+  overflow: hidden;
+  width: 27px;
+  top: -2px;
+  position: relative;
+}
+
+.step {
+  display: block;
+  float: left;
+  width: 7px;
+  height: 7px;
+  margin: 0 2px 0 0;
+  border-radius: 1px;
+  background: rgba(255, 255, 255, .5);
+}
+
+.step:nth-child(1) {
+  -webkit-animation: loaderStep 1.5s infinite 0.5s;
+}
+.step:nth-child(2) {
+  -webkit-animation: loaderStep 1.5s infinite 1s;
+}
+.step:nth-child(3) {
+  -webkit-animation: loaderStep 1.5s infinite 1.5s;
+}
+
+@-webkit-keyframes loaderStep {
+  0% {
+    background: rgba(255, 255, 255, .5);
+  }
+  16% {
+    background: rgba(255, 255, 255, 1);
+  }
+  33% {
+    background: rgba(255, 255, 255, .5);
+  }
+  50% {
+    background: rgba(255, 255, 255, .5);
+  }
+  88% {
+    background: rgba(255, 255, 255, .5);
+  }
+  100% {
+    background: rgba(255, 255, 255, .5);
+  }
+}
+
+
+
 
 /* LIST */
 .list-loader {
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 0;
+  right: 0;
+  text-align: center;
   height: 20px;
-  width: 20px;
-  margin: -10px 0 0 -10px;
+  margin: -35px 0 0 0;
   background-position: center middle;
+
+  font-family: "kepler-std-1", "kepler-std-2", georgia;
+  font-size: 70px;
+  font-weight: 100;
+  letter-spacing: 3px;
+  line-height: 1;
 }
 #snippet-list ul {
   margin: 0;
@@ -56,13 +116,11 @@ h1 {
 }
 #snippet-list li {
   overflow: hidden;
-  padding: 10px;
+  padding: 0 12px;
   position: relative;
   font-size: 12px;
-  color: #aaa;
-  border-top: 1px solid #292929;
-}
-#snippet-list li:nth-child(odd) {
+  color: #ccc;
+  border-top: 4px solid #111;
   background: #191919;
 }
 #snippet-list li:first-child {
@@ -75,18 +133,23 @@ h1 {
 
 
 /* SNIPPET */
+.snippet {
+  padding: 12px 0;
+}
 .snippet h2 {
   font-family: "kepler-std-1", "kepler-std-2", georgia;
-  font-size: 24px;
-  margin: 0 0 3px 0;
-  line-height: 1.1;
-  font-weight: bold;
+  font-size: 30px;
+  line-height: 1.05;
+  margin: 0 0 5px 0;
+  font-weight: 100;
   display: block;
 }
 .snippet p {
   margin: 0;
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.25;
+  font-weight: 300;
+  color: #666;
 }
 
 
@@ -97,27 +160,29 @@ article {
   font-family: "kepler-std-1", "kepler-std-2", georgia;
   font-weight: 300;
   line-height: 1.4;
+  overflow: hidden;
+  padding: 12px 0;
 }
 article h2 {
-  font-size: 32px;
-  margin: 0 0 12px 0;
-  font-weight: bold;
+  font-family: "kepler-std-1", "kepler-std-2", georgia;
+  font-size: 38px;
   line-height: 1.05;
+  font-weight: 100;
+  margin: 0 0 12px 0;
   color: #ccc;
 }
 article img {
   width: 100%;
   height: auto;
-  display: block;
-  border-radius: 4px;
-  margin: 0 0 27px 0;
+  border-radius: 2px;
+  margin: 0 0 7px 0;
 }
 article a {
   color: #aaa;
 }
 article p,
 article .byline {
-  margin: 0 0 16px 0;
+  margin: 0 0 14px 0;
 }
 article p+h3 {
   margin-top: 15px;

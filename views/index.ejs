@@ -18,7 +18,7 @@
         <div id="list-wrapper">
           <div id="list-scroller">
             <h1>Nyheter</h1>
-            <div id="snippet-list"><span class="loader list-loader">Loading nws!</span></div>
+            <div id="snippet-list"><span class="loader list-loader">NWS</span></div>
           </div>
         </div>
       </div>
@@ -44,7 +44,9 @@
       </ul>
     </script>
     <script id="article-template" type="text/x-handlebars-template">
-      <img src="{{image}}">
+      {{#if image}}
+        <img src="{{image}}">
+      {{/if}}
       <h2>{{title}}</h2>
       <div>
         {{{body}}}
