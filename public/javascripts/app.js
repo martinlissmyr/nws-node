@@ -36,20 +36,23 @@
   };
 
   var getArticle = function(url, container) {
-    var exists,
-        article = exists = container.parentNode.querySelector("article");
-
-    if (!exists) {
-      article = document.createElement("article");
-      container.parentNode.appendChild(article);
-    }
+    var exists, article; 
 
     if (container.className === "snippet") {
+      article, exists = container.parentNode.querySelector("article");
+
+      if (!exists) {
+        article = document.createElement("article");
+        container.parentNode.appendChild(article);
+      }
+
       $.addClass("hidden", container);
       article.addEventListener("click", onClick, false);
     } else if (articleScroll) {
+      article = document.querySelector("#article");
       articleScroll.scrollTo(0, 0, 0);
     }
+
 
     if (exists) {
       $.removeClass("hidden", article);
