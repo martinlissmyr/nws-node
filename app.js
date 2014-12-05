@@ -4,23 +4,23 @@ var path = require('path');
 var fetch = require("./lib/fetch");
 var feed = require("./lib/feed");
 var device = require("express-device");
+var errorHandler = require("errorhandler");
+var logger = require("morgan");
 
 var app = module.exports = express();
 var APP_VERSION = 6;
 
 app.use(device.capture());
 
-app.configure(function() {
-  app.set('port', process.env.PORT || 3000);
-  app.set('views', path.join(__dirname, 'views'));
-  app.set('view engine', 'ejs');
-  app.use(express.static(path.join(__dirname, 'public')));
-});
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+app.set('port', process.env.PORT || 3000);
+app.use(express.static(path.join(__dirname, 'public')));
 
-app.configure('development', function() {
-  app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
-  app.use(express.logger('dev'));
-});
+if (app.get("env") == "development") {
+  app.use(errorHandler({ dumpExceptions: true, showStack: true }));
+  app.use(logger("dev"));
+}
 
 app.get("/fetch/(*)", function(request, response) {
   fetch.respond(request, response);
@@ -40,6 +40,6 @@ app.get('/', function(request, response){
 });
 
 
-http.createServer(app).listen(app.get('port'), function(){
-  console.log('Express server listening on port ' + app.get('port'));
+var server = app.listen(3000, function () {
+  console.log("Express server listening on port " + server.address().port);
 });
