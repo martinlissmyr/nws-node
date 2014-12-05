@@ -5,7 +5,7 @@
 
  var Nws = (function($) {
   'use strict';
-  var iPhone = navigator.userAgent.indexOf("iPhone") > 0;
+  var iPhone = navigator.userAgent.indexOf("iPhone") > 0;;
   var listScroll;
   var articleScroll;
   var listTemplate = Handlebars.compile(document.getElementById("list-template").innerHTML);

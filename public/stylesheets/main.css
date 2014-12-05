@@ -110,11 +110,11 @@ h1 {
   letter-spacing: 3px;
   line-height: 1;
 }
-#snippet-list ul {
+#snippet-list > ul {
   margin: 0;
   padding: 0;
 }
-#snippet-list li {
+#snippet-list > ul > li {
   overflow: hidden;
   padding: 0 12px;
   position: relative;
@@ -123,11 +123,11 @@ h1 {
   border-top: 4px solid #111;
   background: #191919;
 }
-#snippet-list li:first-child {
+#snippet-list > ul > li:first-child {
   border-top: 0;
 }
-#snippet-list li.viewed,
-#snippet-list li.viewed .snippet  h2 {
+#snippet-list > ul > li.viewed,
+#snippet-list > ul > li.viewed .snippet  h2 {
   color: #555;
 }
 
@@ -155,13 +155,17 @@ h1 {
 
 /* ARTICLE */
 article {
-  font-size: 20px;
   color: #eee;
+  overflow: hidden;
+  padding: 12px 0;
+}
+article,
+article li,
+article p {
+  font-size: 20px;
   font-family: "kepler-std-1", "kepler-std-2", georgia;
   font-weight: 300;
   line-height: 1.4;
-  overflow: hidden;
-  padding: 12px 0;
 }
 article h2 {
   font-family: "kepler-std-1", "kepler-std-2", georgia;
@@ -175,16 +179,34 @@ article img {
   width: 100%;
   height: auto;
   border-radius: 2px;
-  margin: 0 0 7px 0;
+  margin: 0 0 20px 0;
+  display: block;
+}
+article div img:first-child {
+  margin-top: 20px;
 }
 article a {
   color: #aaa;
 }
 article p,
 article .byline {
+  display: block;
   margin: 0 0 14px 0;
 }
-article p+h3 {
+article ol,
+article ul {
+  margin: 0 0 14px 0;
+  padding: 0 0 0 1.3em;
+}
+article img + span {
+  display: block;
+  margin: -17px 0 20px 0;
+  font-family: "helvetica neue", helvetica, arial, sans-serif;
+  color: #666;
+  font-size: 14px;
+  line-height: 19px;
+}
+article p + h3 {
   margin-top: 15px;
   border-top: 1px solid white;
   padding-top: 15px;

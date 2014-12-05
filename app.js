@@ -8,13 +8,13 @@ var errorHandler = require("errorhandler");
 var logger = require("morgan");
 
 var app = module.exports = express();
-var APP_VERSION = 6;
+var APP_VERSION = 9;
 
 app.use(device.capture());
 
+app.set('port', process.env.PORT || 3000);
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
-app.set('port', process.env.PORT || 3000);
 app.use(express.static(path.join(__dirname, 'public')));
 
 if (app.get("env") == "development") {
@@ -39,7 +39,6 @@ app.get('/', function(request, response){
   response.render("index", { version: APP_VERSION, device: request.device.type });
 });
 
-
-var server = app.listen(3000, function () {
+var server = app.listen(app.get("port"), function () {
   console.log("Express server listening on port " + server.address().port);
 });
