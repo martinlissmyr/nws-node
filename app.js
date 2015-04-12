@@ -8,7 +8,7 @@ var errorHandler = require("errorhandler");
 var logger = require("morgan");
 
 var app = module.exports = express();
-var APP_VERSION = 10;
+var APP_VERSION = 11;
 
 app.set('port', process.env.PORT || 3000);
 app.set('view engine', 'ejs');
