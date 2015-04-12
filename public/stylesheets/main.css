@@ -198,7 +198,8 @@ article ul {
   margin: 0 0 14px 0;
   padding: 0 0 0 1.3em;
 }
-article img + span {
+article img + span,
+p.caption {
   display: block;
   margin: -17px 0 20px 0;
   font-family: "helvetica neue", helvetica, arial, sans-serif;
@@ -233,30 +234,4 @@ blockquote,
 }
 .preamble em {
   font-style: normal;
-}
-
-
-/* LARGE ARTICLE (iPad) */
-.large-article {
-  display: none;
-  max-width: 900px;
-  padding: 45px 50px 440px 50px;
-  font-size: 23px;
-  line-height: 1.5;
-}
-.large-article h2 {
-  font-size: 45px;
-  margin: 0 0 20px 0;
-  font-weight: 100;
-  color: #eee;
-  line-height: 1.15;
-}
-.large-article .actions a {
-  padding: 5px 6px 5px 6px;
-  display: inline-block;
-  -webkit-border-radius: 3px;
-  background: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#ddd));
-  text-decoration: none;
-  color: #333;
-  text-shadow: 0 1px 0 #fff;
 }
