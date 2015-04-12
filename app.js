@@ -10,8 +10,6 @@ var logger = require("morgan");
 var app = module.exports = express();
 var APP_VERSION = 9;
 
-app.use(device.capture());
-
 app.set('port', process.env.PORT || 3000);
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
@@ -32,11 +30,11 @@ app.get("/feed", function(request, response) {
 
 app.get("/manifest.mf", function(request, response) {
   response.setHeader("content-type", "text/cache-manifest");
-  response.render("manifest", { version: APP_VERSION, device: request.device.type });
+  response.render("manifest", { version: APP_VERSION });
 });
 
 app.get('/', function(request, response){
-  response.render("index", { version: APP_VERSION, device: request.device.type });
+  response.render("index", { version: APP_VERSION });
 });
 
 var server = app.listen(app.get("port"), function () {

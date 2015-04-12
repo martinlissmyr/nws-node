@@ -5,7 +5,6 @@
 
  var Nws = (function($) {
   'use strict';
-  var iPhone = navigator.userAgent.indexOf("iPhone") > 0;;
   var listScroll;
   var articleScroll;
   var listTemplate = Handlebars.compile(document.getElementById("list-template").innerHTML);
@@ -21,7 +20,7 @@
     });
   };
 
-  var onClick = function(e) {
+  var onArticleClick = function(e) {
     e.preventDefault(); 
     e.stopPropagation();
     if (e.srcElement.nodeName != "A") {
@@ -36,23 +35,21 @@
   };
 
   var getArticle = function(url, container) {
-    var exists, article; 
+    var article = container.parentNode.querySelector("article"); 
+    var exists = article;
 
     if (container.className === "snippet") {
-      article, exists = container.parentNode.querySelector("article");
-
       if (!exists) {
         article = document.createElement("article");
         container.parentNode.appendChild(article);
       }
 
       $.addClass("hidden", container);
-      article.addEventListener("click", onClick, false);
+      article.addEventListener("click", onArticleClick, false);
     } else if (articleScroll) {
       article = document.querySelector("#article");
       articleScroll.scrollTo(0, 0, 0);
     }
-
 
     if (exists) {
       $.removeClass("hidden", article);
@@ -68,16 +65,7 @@
   }
 
   var init = function() {
-    if (iPhone) {
-      getFeed();
-    } else {
-      document.addEventListener('touchmove', function(e) { e.preventDefault(); }, false);
-      getFeed(function() {
-        listScroll = new iScroll('list-wrapper', { hScrollbar: false, vScrollbar: false });
-        articleScroll = new iScroll('article-wrapper');
-        $.trigger("click", document.querySelector("#snippet-list li:first-child .snippet"));
-      });
-    }
+    getFeed();
 
     document.getElementById("snippet-list").addEventListener('click', function(e) { 
       e.preventDefault();
@@ -85,14 +73,8 @@
       if (url) {
         var elm = document.querySelector('[data-url="' + url + '"]');
 
-        if (iPhone) {
-          getArticle(url, elm);
-          $.scrollTo(elm.parentNode);
-        } else {
-          getArticle(url, document);
-          elm.parentNode.className = "viewed";
-          listScroll.scrollToElement(elm.parentNode, 400);
-        }
+        getArticle(url, elm);
+        $.scrollTo(elm.parentNode);
       }
 
     }, false);
