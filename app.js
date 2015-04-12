@@ -3,7 +3,6 @@ var http = require('http');
 var path = require('path');
 var fetch = require("./lib/fetch");
 var feed = require("./lib/feed");
-var device = require("express-device");
 var errorHandler = require("errorhandler");
 var logger = require("morgan");
 
