@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xxx-manifest="/manifest.mf">
+  <head>
+    <title>Nws</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-precomposed.png?v=<%- version %>">
+    <link rel="stylesheet" href="/stylesheets/main.css?v=<%- version %>">
+    <script type="text/javascript" src="http://use.typekit.com/fxg5tgf.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+  </head>
+  <body>
+    <ul id="article-list">
+      {{#each articles}}
+        <li data-article-data="{{ toJSON this }}">
+          <a class="snippet" data-url="{{url}}" data-role="snippet">
+            {{# if image }}
+              <img src="{{image}}">
+            {{/if}}
+            <div class="title">{{title}}</div>
+          </a>
+          <article class="article hidden" data-role="article"></article>
+        </li>
+      {{/each}}
+    </ul>
+    <script src="javascripts/app.js?v=<%- version %>" type="text/javascript"></script>
+  </body>
+</html>

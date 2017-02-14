@@ -2,11 +2,11 @@ html, body {
   height:100%;
 }
 body {
-  background: #1c1c1c;
+  background: #eee;
   padding: 0;
   margin: 0;
   font-family: "helvetica neue", helvetica, arial, sans-serif;
-  color: #eee;
+  color: #333;
   line-height: 1.1;
   border:0;
   -webkit-user-select:none;
@@ -19,115 +19,27 @@ h1 {
 
 /* GENERAL */
 .hidden {
-  display: none;
+  display: none !important;
 }
-.loader {
-  font-family: "helvetica neue", helvetica, arial, sans-serif;
-  font-weight: 200;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  display: block;
-  font-size: 11pt;
-}
-.start .loader {
-  display: block;
-  width: 100px;
-  margin: 0 auto;
-}
-.actions {
-  font-family: "helvetica neue", helvetica, arial, sans-serif;
-  padding: 10px 7px 7px 7px;
-  font-size: 10pt;
-  text-align: right;
-}
-
-.loader-thing {
-  display: inline-block;
-  overflow: hidden;
-  width: 27px;
-  top: -2px;
-  position: relative;
-}
-
-.step {
-  display: block;
-  float: left;
-  width: 7px;
-  height: 7px;
-  margin: 0 2px 0 0;
-  border-radius: 1px;
-  background: rgba(255, 255, 255, .5);
-}
-
-.step:nth-child(1) {
-  -webkit-animation: loaderStep 1.5s infinite 0.5s;
-}
-.step:nth-child(2) {
-  -webkit-animation: loaderStep 1.5s infinite 1s;
-}
-.step:nth-child(3) {
-  -webkit-animation: loaderStep 1.5s infinite 1.5s;
-}
-
-@-webkit-keyframes loaderStep {
-  0% {
-    background: rgba(255, 255, 255, .5);
-  }
-  16% {
-    background: rgba(255, 255, 255, 1);
-  }
-  33% {
-    background: rgba(255, 255, 255, .5);
-  }
-  50% {
-    background: rgba(255, 255, 255, .5);
-  }
-  88% {
-    background: rgba(255, 255, 255, .5);
-  }
-  100% {
-    background: rgba(255, 255, 255, .5);
-  }
-}
-
-
 
 
 /* LIST */
-.list-loader {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
-  text-align: center;
-  height: 20px;
-  margin: -35px 0 0 0;
-  background-position: center middle;
-
-  font-family: "kepler-std-1", "kepler-std-2", georgia;
-  font-size: 70px;
-  font-weight: 100;
-  letter-spacing: 3px;
-  line-height: 1;
-}
-#snippet-list > ul {
+#article-list {
   margin: 0;
   padding: 0;
 }
-#snippet-list > ul > li {
+#article-list > li {
   overflow: hidden;
   padding: 0 12px;
   position: relative;
   font-size: 12px;
-  color: #ccc;
-  border-top: 4px solid #111;
-  background: #191919;
+  border-top: 1px solid #ccc;
 }
-#snippet-list > ul > li:first-child {
+#article-list > li:first-child {
   border-top: 0;
 }
-#snippet-list > ul > li.viewed,
-#snippet-list > ul > li.viewed .snippet  h2 {
+#article-list > li.viewed,
+#article-list > li.viewed .snippet  h2 {
   color: #555;
 }
 
@@ -135,70 +47,76 @@ h1 {
 /* SNIPPET */
 .snippet {
   padding: 12px 0;
+  display: block;
+  overflow: hidden;
 }
-.snippet h2 {
+.snippet .title {
   font-family: "kepler-std-1", "kepler-std-2", georgia;
-  font-size: 30px;
+  font-size: 24px;
   line-height: 1.05;
-  margin: 0 0 5px 0;
+  margin: 0;
   font-weight: 100;
   display: block;
 }
-.snippet p {
-  margin: 0;
-  font-size: 15px;
-  line-height: 1.25;
-  font-weight: 300;
-  color: #666;
+.snippet img {
+  height: 55px;
+  float: right;
+  margin: 0 0 0 10px;
 }
 
+.snippet.read .title {
+  color: #aaa;
+}
+.snippet.read img {
+  display: none;
+}
 
 /* ARTICLE */
-article {
-  color: #eee;
+.article {
+  color: #333;
   overflow: hidden;
   padding: 12px 0;
 }
-article,
-article li,
-article p {
+.article,
+.article li,
+.article p {
   font-size: 20px;
   font-family: "kepler-std-1", "kepler-std-2", georgia;
   font-weight: 300;
   line-height: 1.4;
 }
-article h2 {
+.article h2 {
   font-family: "kepler-std-1", "kepler-std-2", georgia;
-  font-size: 38px;
+  font-size: 32px;
   line-height: 1.05;
   font-weight: 100;
   margin: 0 0 12px 0;
-  color: #ccc;
+  color: #333;
 }
-article img {
+.article img {
   width: 100%;
   height: auto;
   border-radius: 2px;
   margin: 0 0 20px 0;
   display: block;
 }
-article div img:first-child {
+.article div img:first-child {
   margin-top: 20px;
 }
-article a {
-  color: #aaa;
+.article a {
+  color: #333;
 }
-article p,
-article .byline {
+.article p,
+.article .byline {
   display: block;
   margin: 0 0 14px 0;
 }
-article ol,
-article ul {
+.article ol,
+.article ul {
   margin: 0 0 14px 0;
   padding: 0 0 0 1.3em;
 }
-article img + span,
+.article img + span,
 p.caption {
   display: block;
   margin: -17px 0 20px 0;
@@ -207,7 +125,7 @@ p.caption {
   font-size: 14px;
   line-height: 19px;
 }
-article p + h3 {
+.article p + h3 {
   margin-top: 15px;
   border-top: 1px solid white;
   padding-top: 15px;

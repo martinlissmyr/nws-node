@@ -1,0 +1,82 @@
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: #eee;
+  padding: 0;
+  margin: 0;
+  font-family: "kepler-std-1", "kepler-std-2", georgia;
+  color: #333;
+  line-height: 1.35;
+  font-size: 20px;
+}
+
+h1 {
+  margin: 0 0 20px 0;
+  font-size: 50px;
+  line-height: 1.1;
+}
+
+h1 a {
+  color: #333;
+}
+
+.aside {
+  width: 360px;
+  padding: 20px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-right: 1px solid #ddd;
+}
+
+.article-item {
+  display: block;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+  overflow: hidden;
+  line-height: 1.2;
+}
+
+.article-item img {
+  width: 80px;
+  float: left;
+  margin: 0 10px 0 0;
+}
+
+.image {
+  margin: 0 0 20px 0;
+}
+
+.article {
+  padding: 40px 40px 40px 440px;
+}
+
+.article img {
+  display: block;
+  max-width: 100%;
+  margin: 0 0 10px 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.caption {
+  font-size: 14px;
+  color: #666;
+  margin-top: 10px;
+}
+
+blockquote {
+  color: #666;
+  border-left: 5px solid #ccc;
+  margin: 0 0 20px 0;
+  padding-left: 20px;
+}
+
+p {
+  margin: 0 0 20px 0;
+}
