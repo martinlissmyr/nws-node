@@ -2,7 +2,7 @@
 
 Start with:
 
-    $ grunt server
+    $ npm run server:dev
 
 The app will be accessible on [http://localhost:3000](http://localhost:3000).
 
