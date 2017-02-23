@@ -1,6 +1,5 @@
 .env
 .bundle/
-bin/
 node_modules/*
 tmp/*
 .sass-cache
