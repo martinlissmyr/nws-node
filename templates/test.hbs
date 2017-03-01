@@ -13,9 +13,9 @@
     <div class="aside">
       {{# each articles }}
         <div class="article-item">
-          <a href="/test?url=<%- articles[i].url %>">
+          <a href="/test?url={{ url }}&source={{ ../source }}">
             {{# if image }}
-              <img src="{{image}}">
+              <img src="{{ image }}">
             {{/if}}
             {{ title }}
           </a>
@@ -24,17 +24,17 @@
     </div>
     <div class="article">
       <div class="image">
-        <img src="{{article.image }}">
+        <img src="{{ article.image }}">
       </div>
 
-      <h1><a href="{{article.url }}" target="_blank"> {{ article.title }}</a></h1>
+      <h1><a href="{{ article.url }}" target="_blank"> {{ article.title }}</a></h1>
 
       <div>
-        {{article.body }}
+        {{{ article.body }}}
       </div>
 
       <div>
-        {{article.supplier }}
+        {{ article.supplier }}
       </div>
     </div>
   </body>

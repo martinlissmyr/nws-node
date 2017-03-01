@@ -35,18 +35,23 @@ app.get('/', function(request, response) {
 });
 
 app.get('/test', function(request, response) {
-  if (!request.query.url) {
-    response.send("Nothing here");
-  } else {
-    articles.get(function(articles) {
+  articles.get(function(articles) {
+    var articleList = request.query.source ? articles.filter(function(article) {
+      return article.supplier === request.query.source;
+    }) : articles;
+
+    if (request.query.url) {
       fetch(request.query.url, function(article) {
-        response.render("test", { articles: articles, article: article });
+        response.render("test", { articles: articleList, article: article, source: request.query.source });
       }, function(error) {
         console.log(error);
         response.send("An error has occured");
       });
-    });
-  }
+    } else {
+      response.render("test", { articles: articleList, source: request.query.source });
+    }
+  });
+
 });
 
 var server = app.listen(app.get("port"), function () {
