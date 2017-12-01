@@ -23,11 +23,6 @@ hbs.registerHelper("toJSON", function(obj) {
 });
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get("/manifest.mf", function(request, response) {
-  response.setHeader("content-type", "text/cache-manifest");
-  response.render("manifest", { version: APP_VERSION });
-});
-
 app.get('/', function(request, response) {
   articles.get(function(data) {
     response.render("index", { version: APP_VERSION, articles: data });
